@@ -47,7 +47,7 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Demo
 
-Include screenshots or GIFs that show your application in action. Use tools like [Giphy Capture](https://giphy.com/apps/giphycapture) to record a GIF of your application.
+![image](https://github.com/anitabastola/CarDealership2/assets/166552121/72af4f5f-6cec-4e41-8e0f-364bb19f0212)
 
 ![Application Screenshot](path/to/your/screenshot.png)
 
@@ -55,8 +55,8 @@ Include screenshots or GIFs that show your application in action. Use tools like
 
 Outline potential future enhancements or functionalities you might consider adding:
 
-- Additional feature to be developed.
-- Improvement of current functionalities.
+- add more features for user interface
+- find ways to have a way to track the purchase history, offers etc.
 
 ## Resources
 
