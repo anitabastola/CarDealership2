@@ -26,6 +26,8 @@ public class UserInterface {
             System.out.println("7. Get all vehicles");
             System.out.println("8. Add vehicle");
             System.out.println("9. Remove vehicle");
+            System.out.println("10. Lease vehicle");
+            System.out.println("11. Sell vehicle");
             System.out.println("99. Quit");
 
             System.out.print("Enter your choice: ");
@@ -58,6 +60,12 @@ public class UserInterface {
                     break;
                 case "9":
                     processRemoveVehicleRequest();
+                    break;
+                case "10":
+                    processSaleContractRequest();
+                    break;
+                case "11":
+                    makeLeaseContractRequest();
                     break;
                 case "99":
                     quit = true;
@@ -183,6 +191,7 @@ public class UserInterface {
         manager.saveDealership(dealership);
     }
 
+
     private void init() {
         DealershipFileManager manager = new DealershipFileManager();
         dealership = manager.getDealership();
@@ -193,5 +202,69 @@ public class UserInterface {
             System.out.println(vehicle.toString());
         }
     }
+
+
+    public void processSaleContractRequest() {
+        System.out.println("Please enter the date (YYYMMDD): ");
+        String date = scanner.nextLine();
+
+        System.out.println("Please enter the customer name: ");
+        String customerName = scanner.nextLine();
+
+        System.out.println("Please enter the email of the customer: ");
+        String customerEmail = scanner.nextLine();
+
+        System.out.println("Please enter the vehicle VIN: ");
+        int vin = scanner.nextInt();
+        scanner.nextLine();
+
+        Vehicle vehicleSold = null;
+        for (Vehicle vehicle : dealership.getAllVehicles()) {
+            if (vehicle.getVin() == vin) {
+                vehicleSold = vehicle;
+                break;
+            }
+        }
+        if (vehicleSold == null) {
+            System.out.println("vehicle is not found in this VIN. Please try again.");
+            return;
+        }
+        dealership.removeVehicle(vehicleSold);
+        DealershipFileManager manager = new DealershipFileManager();
+        manager.saveDealership(dealership);
+        System.out.println("contract is saved successfully: ");
+    }
+
+    public void makeLeaseContractRequest() {
+        System.out.println("Please enter the date (YYYMMDD): ");
+        String date = scanner.nextLine();
+
+        System.out.println("Please enter the customer name: ");
+        String customerName = scanner.nextLine();
+
+        System.out.println("Please enter the email of the customer: ");
+        String customerEmail = scanner.nextLine();
+
+        System.out.println("Please enter the vehicle VIN: ");
+        int vin = scanner.nextInt();
+        scanner.nextLine();
+
+        Vehicle vehicleSold = null;
+        for (Vehicle vehicle : dealership.getAllVehicles()) {
+            if (vehicle.getVin() == vin) {
+                vehicleSold = vehicle;
+                break;
+            }
+        }
+        if (vehicleSold == null) {
+            System.out.println("vehicle is not found in this VIN. Please try again.");
+            return;
+        }
+        dealership.removeVehicle(vehicleSold);
+        DealershipFileManager manager = new DealershipFileManager();
+        manager.saveDealership(dealership);
+    }
+
+
 
 }
